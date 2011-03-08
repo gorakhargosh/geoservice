@@ -24,6 +24,8 @@ Makefile
 .installed.cfg
 bin/
 dist/
+develop-eggs/
+parts/
 MANIFEST
 
 # Project files for idea, eclipse, and netbeans
