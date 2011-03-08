@@ -1,0 +1,14 @@
+geoservice - IP to geolocation Web service
+==========================================
+
+Built on tornado_ this Web service allows you
+to resolve IP addresses to their approximated
+geographical locations based on the MaxMind
+GeoIP databases.
+
+Installation
+------------
+
+    $ pip install geoservice
+
+.. _tornado: http://tornadoweb.org
