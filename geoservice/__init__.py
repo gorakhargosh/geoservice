@@ -69,4 +69,4 @@ def main():
 
     args = parse_command_line()
     set_up_logging(logger, args.logging_level, args.should_be_quiet)
-    run_server(port=args.port, address=args.address)
+    run_server(port=args.port, address=args.address, args=args)

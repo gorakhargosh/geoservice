@@ -9,6 +9,6 @@ application = tornado.web.Application([
     (r'/', IndexPageHandler),
 ])
 
-def run_server(port, address):
-    application.listen(port=args.port, address=args.address)
+def run_server(port, address, args):
+    application.listen(port=port, address=address)
     tornado.ioloop.IOLoop.instance().start()
