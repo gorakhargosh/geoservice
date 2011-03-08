@@ -36,7 +36,7 @@ def parse_command_line():
                         dest='address',
                         metavar='HOST',
                         type=str,
-                        default='127.0.0.1',
+                        default='0.0.0.0',
                         help='The address on which to listen.')
     parser.add_argument('-q',
                         '--quiet',
