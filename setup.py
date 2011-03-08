@@ -12,11 +12,6 @@ from setuptools import setup
 version = imp.load_source('version',
                           os.path.join('geoservice', '__init__.py'))
 
-install_requires = ['tornado >=1.2.1']
-if sys.version_info < (2, 7, 0):
-# argparse is merged into Python 2.7 in the Python 2x series
-# and Python 3.2 in the Python 3x series.
-    install_requires.append('argparse >=1.1')
 
 def read_file(filename):
     """
@@ -28,10 +23,17 @@ def read_file(filename):
     """
     return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
+
 if sys.version_info < (3,):
     extra = {}
 else:
     extra = dict(use_2to3=True)
+
+install_requires = ['tornado >=1.2.1']
+if sys.version_info < (2, 7, 0):
+# argparse is merged into Python 2.7 in the Python 2x series
+# and Python 3.2 in the Python 3x series.
+    install_requires.append('argparse >=1.1')
 
 setup(name="geoservice",
       version=version.__version_string__,
@@ -59,10 +61,6 @@ setup(name="geoservice",
           'Topic :: Software Development :: Libraries',
           'Topic :: Utilities',
           ],
-      #cmdclass={
-      #    'build_ext': build_ext
-      #    },
-      #ext_modules=ext_modules.get(platform, []),
       packages=['geoservice'],
       include_package_data=True,
       install_requires=install_requires,
