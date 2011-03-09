@@ -16,7 +16,6 @@ Thumbs.db
 __MACOSX__
 .lock-wafbuild
 *.esproj
-Makefile
 .waf-*
 
 # Ignore generated files and directories.
