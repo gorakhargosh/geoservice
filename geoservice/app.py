@@ -21,6 +21,18 @@ class CountryIpAddressHandler(RequestHandler):
         self.set_header('Content-Type', 'application/json')
         self.write(json_encode(response))
 
+class CountryHandler(RequestHandler):
+    def get(self):
+        try:
+            ip_address = self.request.remote_ip
+            country = geo.get_country_by_ip_address(ip_address)
+            response = dict(status='OK', data=country)
+        except:
+            response = dict(status='ERROR')
+        self.set_header('Content-Type', 'application/json')
+        self.write(json_encode(response))
+
+
 class CountryDomainHandler(RequestHandler):
     def get(self, domain):
         try:
@@ -41,6 +53,17 @@ class CityIpAddressHandler(RequestHandler):
         self.set_header('Content-Type', 'application/json')
         self.write(json_encode(response))
 
+class CityHandler(RequestHandler):
+    def get(self):
+        try:
+            ip_address = self.request.remote_ip
+            city = geo.get_city_by_ip_address(ip_address)
+            response = dict(status='OK', data=city)
+        except:
+            response = dict(status='ERROR')
+        self.set_header('Content-Type', 'application/json')
+        self.write(json_encode(response))
+
 class CityDomainHandler(RequestHandler):
     def get(self, domain):
         try:
@@ -53,6 +76,8 @@ class CityDomainHandler(RequestHandler):
 
 application = tornado.web.Application([
     (r'/', IndexPageHandler),
+    (r'/country/?', CountryHandler),
+    (r'/city/?', CityHandler),
     (r'/country/ip/([0-9\.]+)/?', CountryIpAddressHandler),
     (r'/country/domain/(.*)/?', CountryDomainHandler),
     (r'/city/ip/([0-9\.]+)/?', CityIpAddressHandler),
