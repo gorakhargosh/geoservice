@@ -4,12 +4,14 @@ import logging
 
 logger = logging.getLogger("geoservice")
 
+
 class NullLoggingHandler(logging.Handler):
     """
     Attach this handler to your logger to disable all logging.
     """
     def emit(self, record):
         pass
+
 
 def set_up_logging(logger, level, should_be_quiet):
     """
