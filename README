@@ -8,8 +8,8 @@ GeoIP databases.
 
 Installation
 ------------
-
-    $ pip install geoservice
+Clone the repository and set it up by running
+buildout.
 
 Use a DNS cache on the same server because
 given a domain name, a look up is performed
