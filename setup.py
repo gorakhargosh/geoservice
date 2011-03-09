@@ -69,7 +69,7 @@ setup(name="geoservice",
           'Topic :: Software Development :: Libraries',
           'Topic :: Utilities',
           ],
-      packages=['geoservice', 'geoservice.data'],
+      packages=['geoservice', 'geoservice.geo'],
       include_package_data=True,
       install_requires=install_requires,
       entry_points={
