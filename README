@@ -11,4 +11,10 @@ Installation
 
     $ pip install geoservice
 
+Use a DNS cache on the same server because
+given a domain name, a look up is performed
+for the IP address and then the location is
+determined. It is better to keep DNS cached
+in this case. (Pdnsd comes to mind).
+
 .. _tornado: http://tornadoweb.org
