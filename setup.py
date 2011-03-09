@@ -33,6 +33,11 @@ install_requires = [
     'tornado >=1.2.1',
     'pygeoip >=0.1.5',
 ]
+if sys.version_info < (2, 6, 0):
+    # Simplejson has been integrated into Python as 
+    # the `json` module in versions 2.6 and above.
+    install_requires.append('simplejson >= 2.1.3')
+
 if sys.version_info < (2, 7, 0):
 # argparse is merged into Python 2.7 in the Python 2x series
 # and Python 3.2 in the Python 3x series.

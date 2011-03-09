@@ -14,11 +14,11 @@ MKDIR=mkdir -p
 all: fetch_data
 
 init:
-	-$(MKDIR) data/ geoservice/data/
+	-$(MKDIR) data/
 
 fetch_data: init data/$(GEOLITECITY_DAT_GZ) data/$(GEOIP_DAT_GZ)
-	cp data/*.gz geoservice/data/
-	$(GUNZIP) geoservice/data/*.gz
+	cp data/*.gz geoservice/geo/
+	$(GUNZIP) geoservice/geo/*.gz
 
 data/$(GEOIP_DAT_GZ):
 	$(CURL) http://dl.dropbox.com/u/12470785/maxmind/GeoIP.dat.gz
@@ -32,4 +32,4 @@ clean:
 	-$(RM) geoservice/*.pyc
 
 distclean: clean
-	-$(RM) data/ geoservice/data/
+	-$(RM) data/ geoservice/geo/*.dat
