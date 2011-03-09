@@ -21,12 +21,10 @@ fetch_data: init data/$(GEOLITECITY_DAT_GZ) data/$(GEOIP_DAT_GZ)
 	$(GUNZIP) geoservice/geo/*.gz
 
 data/$(GEOIP_DAT_GZ):
-	#$(CURL) http://dl.dropbox.com/u/12470785/maxmind/GeoIP.dat.gz
 	$(CURL) http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
 	mv *.gz data/
 
 data/$(GEOLITECITY_DAT_GZ):
-	#$(CURL) http://dl.dropbox.com/u/12470785/maxmind/GeoLiteCity.dat.gz
 	$(CURL) http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
 	mv *.gz data/
 
