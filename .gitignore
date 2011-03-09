@@ -18,6 +18,9 @@ __MACOSX__
 *.esproj
 .waf-*
 
+geoservice/geo/*.dat
+data/
+
 # Ignore generated files and directories.
 *.egg-info/
 .installed.cfg
