@@ -3,7 +3,11 @@
 import tornado.ioloop
 import tornado.web
 
-from geoservice.handlers import IndexPageHandler
+from tornado.web import RequestHandler
+
+class IndexPageHandler(RequestHandler):
+    def get(self):
+        self.write("Hello, world.")
 
 
 application = tornado.web.Application([
