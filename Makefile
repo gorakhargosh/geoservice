@@ -22,11 +22,11 @@ fetch_data: init data/$(GEOLITECITY_DAT_GZ) data/$(GEOIP_DAT_GZ)
 
 data/$(GEOIP_DAT_GZ):
 	$(CURL) http://dl.dropbox.com/u/12470785/maxmind/GeoIP.dat.gz
-	mv $(GEOIP_DAT_GZ) data/
+	mv *.gz data/
 
 data/$(GEOLITECITY_DAT_GZ):
 	$(CURL) http://dl.dropbox.com/u/12470785/maxmind/GeoLiteCity.dat.gz
-	mv $(GEOLITE_DAT_GZ) data/
+	mv *.gz data/
 
 clean:
 	-$(RM) geoservice/*.pyc
