@@ -27,6 +27,8 @@ class CountryIpAddressHandler(BaseRequestHandler):
     def get(self, ip_address):
         try:
             country = geo.get_country_by_ip_address(ip_address)
+            if country:
+                country['ip_address'] = ip_address
             response = dict(status='OK', data=country)
         except:
             response = dict(status='ERROR')
@@ -40,6 +42,8 @@ class CountryHandler(BaseRequestHandler):
             ip_address = self.get_remote_addr()
             logger.info('Remote IP address is: %s' % ip_address)
             country = geo.get_country_by_ip_address(ip_address)
+            if country:
+                country['ip_address'] = ip_address
             response = dict(status='OK', data=country)
         except:
             response = dict(status='ERROR')
@@ -51,6 +55,8 @@ class CountryDomainHandler(BaseRequestHandler):
     def get(self, domain):
         try:
             country = geo.get_country_by_domain(domain)
+            if country:
+                country['domain'] = domain
             response = dict(status='OK', data=country)
         except:
             response = dict(status='ERROR')
@@ -62,6 +68,8 @@ class CityIpAddressHandler(BaseRequestHandler):
     def get(self, ip_address):
         try:
             city = geo.get_city_by_ip_address(ip_address)
+            if city:
+                city['ip_address'] = ip_address
             response = dict(status='OK', data=city)
         except:
             response = dict(status='ERROR')
@@ -75,6 +83,8 @@ class CityHandler(BaseRequestHandler):
             ip_address = self.get_remote_addr()
             logger.info('Remote IP address is: %s' % ip_address)
             city = geo.get_city_by_ip_address(ip_address)
+            if city:
+                city['ip_address'] = ip_address
             response = dict(status='OK', data=city)
         except:
             response = dict(status='ERROR')
@@ -86,6 +96,8 @@ class CityDomainHandler(BaseRequestHandler):
     def get(self, domain):
         try:
             city = geo.get_city_by_domain(domain)
+            if city:
+                city['domain'] = domain
             response = dict(status='OK', data=city)
         except:
             response = dict(status='ERROR')
