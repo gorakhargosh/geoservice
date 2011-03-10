@@ -10,8 +10,8 @@ geoip_dat = resource_filename(__name__, "GeoIP.dat")
 geolite_city_dat = resource_filename(__name__, "GeoLiteCity.dat")
 
 # API.
-geoip_country = pygeoip.GeoIP(geoip_dat)
-geoip_city = pygeoip.GeoIP(geolite_city_dat)
+geoip_country = pygeoip.GeoIP(geoip_dat, pygeoip.MMAP_CACHE)
+geoip_city = pygeoip.GeoIP(geolite_city_dat, pygeoip.MMAP_CACHE)
 
 
 def _get_country_code_by_domain(domain):
